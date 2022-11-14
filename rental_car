@@ -1,0 +1,146 @@
+from argparse import ArgumentParser
+
+class Customer: 
+    """Acts as an instance of a customer. It takes the customer's info such as 
+    phone number, name, and age. Also allows for them to input their order 
+    including the car make, type, and days they will rent the car for.
+    
+	Attributes:
+		name(str): name of customer
+		phone_number(str): phone number of customer
+        customer_choice_type (str): the type of car that the customer wants
+                                    to rent
+        customer_choice_make (str): the make of car that the customer wants
+                                    to rent
+        duration (int): the number of days the customer wants to rent 
+        extra (str): the add-ons the customer may want to include, such as 
+                    insurance or roadside assistance 
+
+	"""
+    def __init__(self, name, phone_number): 
+        """Initialize the object's attributes. Sets the phone number equal to 
+        phone number attribute if it matches the format of the regular expression.
+        
+        Args:
+            name (str): name of customer
+            phone_number(str): phone number of customer
+            
+        Side effects:
+            -sets name and phone number attribute and changes the self attribute
+            -prints to standard output 
+	    """
+     
+    def age(self, required = 21): 
+        """Determines if a user is the required age to rent a vehicle. Only 
+        users 21 and older will be allowed to.
+        
+	    Args:
+	        age(int): The age the user inputs
+	        required(int): optional parameter, with a default required age of 21
+	
+	    Side effects:
+	        print(str): A statement is printed based on the age that user inputs 
+	    """
+    def order(self): 
+        """Asks the customer for the number of cars they want, what type of car 
+        they want, and records it as a attribute.
+            
+        Side effects: 
+            Sets the customer_choice_type, customer_choice_make, duration, and 
+            extra attributes. 
+
+        """
+class RentalCar: 
+    """RentalCar class organizes all of the information from the Customer class, 
+    then uses the customer's order information that they inputted to calculate
+    totals and generate a final receipt that will print out for the customer. 
+    
+    Attributes: 
+        customer(instance of the Customer class): instance of the Customer class
+        cars(dictionary): dictionary will have the make of the car as the key, 
+                          and the value will hold a list of information about 
+                          the car such as number in stock, the car type 
+                          (sedan, etc), and the price in that order. This will
+                          be used to access information about the cars in other
+                          methods.
+        final (float): the total renting price for the customer  
+        
+    """
+    # you have to create an instance of the customer class (set equal to variable) outside of the class first
+    #and then that instance can be passed as an argument
+    def __init__(self, filepath, customer): 
+        """ This class initalizes the customer and cars attribute. It also
+        reads in the file and uses sequence unpacking to create the variables 
+        for the different information about the car and prints how the cars we
+        have in stock.
+        
+        Args: 
+            filepath (str): path to a file containing information about the cars
+            customer (instance of the Customer class): instance of the Customer 
+                                                       class
+          
+                                                        
+        Side effects:
+            -print (str): f-string of the cars in stock
+            - sets customer and cars attribute 
+            
+        """
+     def new_stock(self):
+        """ Returns a new set of the updated stock after subtracting the 
+        customer's order from the current stock.
+            
+        Returns:
+            it returns the new set of the new available stock in an f-string
+            
+        """
+    def price_of_cars(self):
+        """Sorts the cars using a lambda function based on the prices.
+        
+        Side effect: 
+            sorted() method returns a sorted list of cars based on the prices 
+            for the customers to see 
+        """ 
+    def additional_fees(self):
+        """Adds on the additional fees to the price depending on what is
+        available to the customer and what option they chose based on their
+        input.
+            
+        Returns:
+            f-str: tells the user what the price is of the add on they used. 
+        """
+        
+         def __mul__(self):
+        """Calculates total price by multipying the price per day times the 
+        number of days it is being rented.
+        
+        Side effects: 
+            sets the final attribute to self 
+            
+        Returns:
+            self * duration 
+        """
+        
+        def receipt(self, store = "Team Blue's Rental"):
+        """Creates receipt of the entire customer order.
+        
+        Args:
+            store (str): name of the rental store,default value is "Ally Rental"
+        """
+        
+def main(filepath): 
+    """Main driver for the program. Calls the methods as needed. We will make 
+    an instance of the Customer class and pass that into the Rental Car class 
+    as an attribute. 
+    
+    Args:
+        filepath (str): path to file containing car data. 
+        
+    """ 
+
+def parse_args(arglist):
+    """Parses command-line arguments. 
+    
+    Args:
+        arglist(list of str): arguments from the command line,
+    Returns:
+        namespace: the parsed arguments, as a namespace."""
