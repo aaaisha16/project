@@ -88,8 +88,12 @@ class RentalCar:
         Args: 
             filepath (str): path to a text file with UTF-8 encoding, that 
                             contains information about the cars such as 
-                            number in stock, make, car type, and price (in that
-                            order) which will be split through sequence unpacking.
+                            number in stock (int), make (str), car type(str), 
+                            and price (float) (in that order) which will be
+                            split through sequence unpacking.
+                            Each line of the file will contain information about a 
+                            different make and type of car.
+        
             customer (instance of the Customer class): instance of the Customer 
                                                        class
           
@@ -126,7 +130,7 @@ class RentalCar:
         
          def __mul__(self):
         """Calculates total price by multipying the price per day (which can 
-        be foundi n the dictionary) and the number of days it is being rented, 
+        be found in the dictionary) and the number of days it is being rented, 
         which can be found in the order method of the Customer class that the
         customer inputted.
         
@@ -153,8 +157,11 @@ def main(filepath):
     Args:
         filepath (str): path to a text file with UTF-8 encoding, that 
                         contains information about the cars such as 
-                        number in stock, make, car type, and price (in that
-                        order) which will be split through sequence unpacking.
+                        number in stock (int), make (str), car type(str), 
+                        and price (float) (in that order) which will be
+                        split through sequence unpacking.
+                        Each line of the file will contain information about a 
+                        different make and type of car.
         
     """ 
 
