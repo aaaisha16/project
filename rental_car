@@ -1,9 +1,9 @@
 from argparse import ArgumentParser
 
 class Customer: 
-    """Acts as an instance of a customer. It takes the customer's info such as 
-    phone number, name, and age. Also allows for them to input their order 
-    including the car make, type, and days they will rent the car for.
+    """Acts as an instance of a customer. It takes the customer's information
+    such as  phone number, name, and age. Also allows for them to input their 
+    order including the car make, type, and days they will rent the car for.
     
 	Attributes:
 		name(str): name of customer
@@ -19,7 +19,8 @@ class Customer:
 	"""
     def __init__(self, name, phone_number): 
         """Initialize the object's attributes. Sets the phone number equal to 
-        phone number attribute if it matches the format of the regular expression.
+        phone number attribute if it matches the format of the regular 
+        expression.
         
         Args:
             name (str): name of customer
@@ -32,18 +33,23 @@ class Customer:
      
     def age(self, required = 21): 
         """Determines if a user is the required age to rent a vehicle. Only 
-        users 21 and older will be allowed to.
+        users 21 and older will be allowed to otherwise a prompt will display
+        saying they are not old enough to rent a car.
         
 	    Args:
 	        age(int): The age the user inputs
-	        required(int): optional parameter, with a default required age of 21
+	        required(int): the optional age parameter, with a default required 
+                           age of 21
 	
 	    Side effects:
 	        print(str): A statement is printed based on the age that user inputs 
 	    """
     def order(self): 
-        """Asks the customer for the number of cars they want, what type of car 
-        they want, and records it as a attribute.
+        """Asks the customer what type of car they want (such as sedan, SUV,
+        or truck), the make of the car (such as Toyota or Honda), the number of 
+        days they want to rent, and any add ons they want to include (such as 
+        road-side assitance, or insurance) and each of those are recorded as an
+        attribute.
             
         Side effects: 
             Sets the customer_choice_type, customer_choice_make, duration, and 
@@ -51,31 +57,39 @@ class Customer:
 
         """
 class RentalCar: 
-    """RentalCar class organizes all of the information from the Customer class, 
-    then uses the customer's order information that they inputted to calculate
-    totals and generate a final receipt that will print out for the customer. 
+    """RentalCar class organizes all of the information from the Customer class,
+    by taking in an instance of the customer class as a customer of the rental 
+    car. Then uses the customer's order information that they inputted to 
+    calculate price totals and generate a final receipt that will print out for
+    the customer. 
     
     Attributes: 
         customer(instance of the Customer class): instance of the Customer class
-        cars(dictionary): dictionary will have the make of the car as the key, 
-                          and the value will hold a list of information about 
-                          the car such as number in stock, the car type 
-                          (sedan, etc), and the price in that order. This will
-                          be used to access information about the cars in other
-                          methods.
-        final (float): the total renting price for the customer  
+        cars(dictionary): dictionary that will have the make (str) of the car
+                          as the key, and the value will be equal to a list of 
+                          information about the car such as number in stock(int), 
+                          the car type (str)(sedan, etc), and the price (float) 
+                          in that order. This will be used to access information 
+                          about the cars in other methods.
+        final (float): the total calculated renting price for the customer  
         
     """
-    # you have to create an instance of the customer class (set equal to variable) outside of the class first
-    #and then that instance can be passed as an argument
+    
     def __init__(self, filepath, customer): 
-        """ This class initalizes the customer and cars attribute. It also
-        reads in the file and uses sequence unpacking to create the variables 
-        for the different information about the car and prints how the cars we
-        have in stock.
+        """ This class initalizes the customer (which is an instance of the
+        Customer class) and cars (which is a dictionary about the car information)
+        as attribute. It also reads in the file and uses sequence unpacking to 
+        create the variables or the different information about the car (such as
+        the number in stock, the type of car, and the price) and it prints each 
+        line of code in the file including the make of the car, the number in 
+        stock, the type of car and the price of the car. 
+        
         
         Args: 
-            filepath (str): path to a file containing information about the cars
+            filepath (str): path to a text file with UTF-8 encoding, that 
+                            contains information about the cars such as 
+                            number in stock, make, car type, and price (in that
+                            order) which will be split through sequence unpacking.
             customer (instance of the Customer class): instance of the Customer 
                                                        class
           
@@ -87,7 +101,8 @@ class RentalCar:
         """
      def new_stock(self):
         """ Returns a new set of the updated stock after subtracting the 
-        customer's order from the current stock.
+        customer's order (which we will use a set function on) from the current 
+        stock.
             
         Returns:
             it returns the new set of the new available stock in an f-string
@@ -110,18 +125,21 @@ class RentalCar:
         """
         
          def __mul__(self):
-        """Calculates total price by multipying the price per day times the 
-        number of days it is being rented.
+        """Calculates total price by multipying the price per day (which can 
+        be foundi n the dictionary) and the number of days it is being rented, 
+        which can be found in the order method of the Customer class that the
+        customer inputted.
         
         Side effects: 
-            sets the final attribute to self 
+            sets the final attribute to self which is the final price 
             
         Returns:
             self * duration 
         """
         
         def receipt(self, store = "Team Blue's Rental"):
-        """Creates receipt of the entire customer order.
+        """Creates receipt of the entire customer order by calling the attributes
+        and printing an f-string.
         
         Args:
             store (str): name of the rental store,default value is "Ally Rental"
@@ -130,10 +148,13 @@ class RentalCar:
 def main(filepath): 
     """Main driver for the program. Calls the methods as needed. We will make 
     an instance of the Customer class and pass that into the Rental Car class 
-    as an attribute. 
+    as an attribute. We will also call the receipt method. 
     
     Args:
-        filepath (str): path to file containing car data. 
+        filepath (str): path to a text file with UTF-8 encoding, that 
+                        contains information about the cars such as 
+                        number in stock, make, car type, and price (in that
+                        order) which will be split through sequence unpacking.
         
     """ 
 
