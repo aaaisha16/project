@@ -68,6 +68,16 @@ class Customer:
             extra attributes. 
 
         """
+        self.customer_choice_type = input("Please choose from the following car "
+                                     + "type options: Sedan, SUV, Van, Truck \n")
+        
+        self.customer_choice_make = input("Please enter the make of the car you "
+                                         + "want \n")
+        self.duration = int(input("Please enter how many days you will rent " 
+                            + "the car for. \n"))
+        
+        self.extra = input("To include add-ons, please enter:" +
+                      "insurance, roadside assistance, both, or None. \n")
 class RentalOrder: 
     """RentalOrder class organizes all of the information from the Customer class,
     by taking in an instance of the customer class as a customer of the rental 
