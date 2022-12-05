@@ -123,7 +123,7 @@ class RentalCar:
                        f"  Type: {car_type}"
                        f"  Price: {price}")
                 
-    def new_stock(self):
+    def stock(self):
         """ Returns a new set of the updated stock after subtracting the 
         customer's order (which we will use a set function on) from the current 
         stock.
@@ -132,6 +132,14 @@ class RentalCar:
             it returns the new set of the new available stock in an f-string
             
         """
+        make_available = {"Toyota","Honda","Ford","Chevrolet","Nissan", "Jeep"}
+        user_choice = set()
+        user_choice.add(self.customer_choice_make)
+        if make_available & user_choice:
+            print ("We have your preferred make in stock.")
+        else:
+            raise ValueError ("Your requested make is not in stock. Try again.")
+        
     def price_of_cars(self):
         """Sorts the cars using a lambda function based on the prices.
         
@@ -155,18 +163,10 @@ class RentalCar:
         if self.extra not in fees:
             print ("Your choice of add-on is not available.")
         
-    def __mul__(self):
-        """Calculates total price by multipying the price per day (which can 
-        be found in the dictionary) and the number of days it is being rented, 
-        which can be found in the order method of the Customer class that the
-        customer inputted.
-        
-        Side effects: 
-            sets the final attribute to self which is the final price 
-            
-        Returns:
-            self * duration 
+    def __add__(self,other):
         """
+        """
+        return self.final + other.final
         
     def receipt(self, store = "Team Blue's Rental"):
         """Creates receipt of the entire customer order by calling the attributes
