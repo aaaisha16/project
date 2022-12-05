@@ -104,7 +104,21 @@ class RentalCar:
             - sets customer and cars attribute 
             
         """
-     def new_stock(self):
+                                               
+        self.customer = customer 
+        self.customerId = customer.id
+        self.cars = {} 
+        with open(filepath, "r", encoding = "utf-8") as f:
+            for line in f:
+                number_in_stock, make, car_type, price = line.split(",") 
+                self.cars[make] = [number_in_stock, car_type, float(price)]
+                # eg: {toyota: [4, sedan, 5.00]}
+                print (f"  Stock: {number_in_stock}"
+                       f"  Make: {make}"
+                       f"  Type: {car_type}"
+                       f"  Price: {price}")
+                
+    def new_stock(self):
         """ Returns a new set of the updated stock after subtracting the 
         customer's order (which we will use a set function on) from the current 
         stock.
@@ -129,7 +143,7 @@ class RentalCar:
             f-str: tells the user what the price is of the add on they used. 
         """
         
-         def __mul__(self):
+    def __mul__(self):
         """Calculates total price by multipying the price per day (which can 
         be found in the dictionary) and the number of days it is being rented, 
         which can be found in the order method of the Customer class that the
@@ -142,7 +156,7 @@ class RentalCar:
             self * duration 
         """
         
-        def receipt(self, store = "Team Blue's Rental"):
+    def receipt(self, store = "Team Blue's Rental"):
         """Creates receipt of the entire customer order by calling the attributes
         and printing an f-string.
         
