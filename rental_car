@@ -149,8 +149,8 @@ class RentalOrder:
         self.duration = int(input("Please enter how many days you will rent " 
                             + "the car for. \n"))
         
-        self.extra = input("To include add-ons, please enter:" +
-                      "insurance, roadside assistance, both, or None. \n")
+        self.extra = input("To include add-ons, please enter: " +
+                      "Insurance, Roadside Assistance, Both, or None. \n")
                 
     def stock(self):
         """ Using a set of makes in stock, it checks to see if the user's 
@@ -192,7 +192,7 @@ class RentalOrder:
             otherwise prints that the add on is not available 
             
         """
-        fees = {"insurance": 30,"roadside assistance":20, "both": 50, "None":0}
+        fees = {"Insurance": 30,"Roadside Assistance":20, "Both": 50, "None":0}
         for add_on in fees:
             if add_on == self.extra: 
                 print (f"Your {add_on} add on price is: {fees[add_on]} dollars")
