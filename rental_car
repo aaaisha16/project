@@ -199,6 +199,21 @@ class RentalOrder:
         
         if self.extra not in fees:
             print ("Your choice of add-on is not available.")
+            
+    def total_cost(self):
+        """Calculates total price by multipying the price per day times the 
+        number of days it is being rented.
+        
+        Side effects: 
+            sets the final attribute to self 
+            
+        Returns:
+            self * duration 
+        """
+        cost = 0
+        if self.customer_choice_make in self.cars:
+            cost = self.cars[self.customer_choice_make][2]
+        self.final = cost * self.duration
         
     def __add__(self,other):
         """ Add up the different totals between two instances of the RentalOrder
