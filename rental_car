@@ -49,6 +49,13 @@ class Customer:
 	    Side effects:
 	        print(str): A statement is printed based on the age that user inputs 
 	    """
+        age = int(input("What is your age? \n"))
+        if age >= required:
+            print ("You are old enough to rent a car, please continue.")   
+        else:
+            raise ValueError("Must be at least 21 to rent a car")
+      
+
     def order(self): 
         """Asks the customer what type of car they want (such as sedan, SUV,
         or truck), the make of the car (such as Toyota or Honda), the number of 
@@ -61,8 +68,8 @@ class Customer:
             extra attributes. 
 
         """
-class RentalCar: 
-    """RentalCar class organizes all of the information from the Customer class,
+class RentalOrder: 
+    """RentalOrder class organizes all of the information from the Customer class,
     by taking in an instance of the customer class as a customer of the rental 
     car. Then uses the customer's order information that they inputted to 
     calculate price totals and generate a final receipt that will print out for
@@ -185,7 +192,7 @@ class RentalCar:
                f" {self.final} not including any add-on fees. Thank you for renting"
                f" from {store}.")
         
-def main(filepath): 
+def main(filepath, name, phone_number): 
     """Main driver for the program. Calls the methods as needed. We will make 
     an instance of the Customer class and pass that into the Rental Car class 
     as an attribute. We will also call the receipt method. 
@@ -201,6 +208,15 @@ def main(filepath):
                         car.
         
     """ 
+    client = Customer(name, phone_number)
+    client.age()
+    print(f"Hello {client.name}! Please begin your rental order!")
+    rental = RentalOrder(filepath, client)
+    rental.price_of_cars() 
+    rental.order()
+    rental.stock() 
+    rental.additional_fees() 
+    rental.receipt() 
 
 def parse_args(arglist):
     """Parses command-line arguments. The command line arguments it is expecting
