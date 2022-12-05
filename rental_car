@@ -11,26 +11,21 @@ class Customer:
 	Attributes:
 		name(str): name of customer
 		phone_number(str): phone number of customer
-        customer_choice_type (str): the type of car that the customer wants
-                                    to rent
-        customer_choice_make (str): the make of car that the customer wants
-                                    to rent
-        duration (int): the number of days the customer wants to rent 
-        extra (str): the add-ons the customer may want to include, such as 
-                    insurance or roadside assistance 
+        id (int): the customer's id that links them to their order 
 
 	"""
     def __init__(self, name, phone_number): 
         """Initialize the object's attributes. Sets the phone number equal to 
         phone number attribute if it matches the format of the regular 
-        expression.
+        expression. The name attribute is passed in as an argument and set equal
+        to the name attribute.
         
         Args:
-            name (str): name of customer
-            phone_number(str): phone number of customer
+            name (str): customer's name 
+            phone_number(str): customer's phone number 
             
         Side effects:
-            -sets name and phone number attribute and changes the self attribute
+            -sets name,phone number, and id attribute and changes the self object
             -prints to standard output 
 	    """
         self.name = name
@@ -41,7 +36,7 @@ class Customer:
             
     def age(self, required = 21): 
         """Determines if a user is the required age to rent a vehicle. Only 
-        users 21 and older will be allowed to otherwise a prompt will display
+        users 21 and older will be allowed to otherwise a error will be raised
         saying they are not old enough to rent a car.
         
 	    Args:
@@ -50,7 +45,11 @@ class Customer:
                            age of 21
 	
 	    Side effects:
-	        print(str): A statement is printed based on the age that user inputs 
+	        print(str): A statement is printed based on the age that user inputs
+         
+        Raises:
+            ValueError: if the value of age is lower than the required age of 
+                        21 to rent a car  
 	    """
         age = int(input("What is your age? \n"))
         if age >= required:
@@ -58,29 +57,6 @@ class Customer:
         else:
             raise ValueError("Must be at least 21 to rent a car")
       
-
-    def order(self): 
-        """Asks the customer what type of car they want (such as sedan, SUV,
-        or truck), the make of the car (such as Toyota or Honda), the number of 
-        days they want to rent, and any add ons they want to include (such as 
-        road-side assitance, or insurance) and each of those are recorded as an
-        attribute.
-            
-        Side effects: 
-            Sets the customer_choice_type, customer_choice_make, duration, and 
-            extra attributes. 
-
-        """
-        self.customer_choice_type = input("Please choose from the following car "
-                                     + "type options: Sedan, SUV, Van, Truck \n")
-        
-        self.customer_choice_make = input("Please enter the make of the car you "
-                                         + "want \n")
-        self.duration = int(input("Please enter how many days you will rent " 
-                            + "the car for. \n"))
-        
-        self.extra = input("To include add-ons, please enter:" +
-                      "insurance, roadside assistance, both, or None. \n")
 class RentalOrder: 
     """RentalOrder class organizes all of the information from the Customer class,
     by taking in an instance of the customer class as a customer of the rental 
@@ -96,7 +72,14 @@ class RentalOrder:
                           the car type (str)(sedan, etc), and the price (float) 
                           in that order. This will be used to access information 
                           about the cars in other methods.
-        final (float): the total calculated renting price for the customer  
+        final (float): the total calculated renting price for the customer 
+        customer_choice_type (str): the type of car that the customer wants
+                                    to rent
+        customer_choice_make (str): the make of car that the customer wants
+                                    to rent
+        duration (int): the number of days the customer wants to rent 
+        extra (str): the add-ons the customer may want to include, such as 
+                    insurance or roadside assistance  
         
     """
     
@@ -142,6 +125,28 @@ class RentalOrder:
                        f"  Make: {make}"
                        f"  Type: {car_type}"
                        f"  Price: {price}")
+    def order(self): 
+        """Asks the customer what type of car they want (such as sedan, SUV,
+        or truck), the make of the car (such as Toyota or Honda), the number of 
+        days they want to rent, and any add ons they want to include (such as 
+        road-side assitance, or insurance) and each of those are recorded as an
+        attribute.
+            
+        Side effects: 
+            Sets the customer_choice_type, customer_choice_make, duration, and 
+            extra attributes. 
+
+        """
+        self.customer_choice_type = input("Please choose from the following car "
+                                     + "type options: Sedan, SUV, Van, Truck \n")
+        
+        self.customer_choice_make = input("Please enter the make of the car you "
+                                         + "want \n")
+        self.duration = int(input("Please enter how many days you will rent " 
+                            + "the car for. \n"))
+        
+        self.extra = input("To include add-ons, please enter:" +
+                      "insurance, roadside assistance, both, or None. \n")
                 
     def stock(self):
         """ Returns a new set of the updated stock after subtracting the 
