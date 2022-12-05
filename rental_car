@@ -183,12 +183,14 @@ class RentalOrder:
         print(pricing)
         
     def additional_fees(self):
-        """Adds on the additional fees to the price depending on what is
-        available to the customer and what option they chose based on their
-        input.
+        """Shows the add on options available to the customer and what 
+        displays which option they chose and the price of the add on based on 
+        their input.
             
-        Returns:
-            f-str: tells the user what the price is of the add on they used. 
+        Side effects:
+            prints an f-string if the user's add on choice is available, 
+            otherwise prints that the add on is not available 
+            
         """
         fees = {"insurance": 30,"roadside assistance":20, "both": 50, "None":0}
         for add_on in fees:
@@ -199,7 +201,18 @@ class RentalOrder:
             print ("Your choice of add-on is not available.")
         
     def __add__(self,other):
-        """ Add up the different totals to determine profits."""
+        """ Add up the different totals between two instances of the RentalOrder
+        class final cost to determine profits.
+        
+        Args:
+            other (instance of RentalOrder): another instance of the RentalOrder
+                                             class
+        
+        Return:
+            returns the total sum between the final cost of two instances of the
+            RentalOrder class
+            
+        """
         return self.final + other.final
         
     def receipt(self, store = "Team Blue's Rental"):
