@@ -207,8 +207,6 @@ class RentalOrder:
         Side effects: 
             sets the final attribute to self 
             
-        Returns:
-            self * duration 
         """
         cost = 0
         if self.customer_choice_make in self.cars:
