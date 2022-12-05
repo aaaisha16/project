@@ -188,8 +188,7 @@ class RentalOrder:
             print ("Your choice of add-on is not available.")
         
     def __add__(self,other):
-        """
-        """
+        """ Add up the different totals to determine profits."""
         return self.final + other.final
         
     def receipt(self, store = "Team Blue's Rental"):
