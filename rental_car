@@ -88,13 +88,13 @@ class RentalOrder:
     
     def __init__(self, filepath, customer): 
         """ This class initalizes the customer (which is an instance of the
-        Customer class) and cars (which is a dictionary about the car information)
-        as attribute. It also reads in the file in which the values are separated
-        by commmas and uses sequence unpacking to create the variables or the 
-        different information about the car (such as the number in stock, 
-        the type of car, and the price) and it prints each line of code in the 
-        file including the make of the car, the number in stock, the type of car 
-        and the price of the car. 
+        Customer class) and cars (which is a dictionary about the car 
+        information) as an attribute. It also reads in the file in which the 
+        values are separated by commmas and uses sequence unpacking to create 
+        the variables or the different information about the car 
+        (such as the number in stock, the type of car, and the price) and it 
+        prints each line of code in the file including the make of the car, 
+        the number in stock, the type of car and the price of the car. 
         
         
         Args: 
@@ -102,9 +102,10 @@ class RentalOrder:
                             contains information about the cars such as 
                             number in stock (int), make (str), car type(str), 
                             and price (float) (in that order) which will be
-                            split through sequence unpacking.
-                            Each line of the file will contain information about a 
-                            different make and type of car.
+                            split through sequence unpacking. Each of the values
+                            in file are seperated by commas. Each line of the 
+                            file will contain information about a different make
+                            and type of car.
         
             customer (instance of the Customer class): instance of the Customer 
                                                        class
@@ -112,7 +113,7 @@ class RentalOrder:
                                                         
         Side effects:
             -print (str): f-string of the cars in stock
-            - sets customer and cars attribute 
+            -sets customer, cars, and customer id attribute 
             
         """
                                                
@@ -129,22 +130,22 @@ class RentalOrder:
                        f"  Type: {car_type}"
                        f"  Price: {price}")
     def order(self): 
-        """Asks the customer what type of car they want (such as sedan, SUV,
-        or truck), the make of the car (such as Toyota or Honda), the number of 
-        days they want to rent, and any add ons they want to include (such as 
-        road-side assitance, or insurance) and each of those are recorded as an
-        attribute.
+        """Asks the customer what type of car they want (such as Sedan, SUV, 
+        Truck, etc.), the make of the car (such as Toyota, Honda, etc.), 
+        the number of days they want to rent, and any add ons they want to 
+        include (such as road-side assitance, or insurance) and each of those 
+        are recorded as an attribute.
             
         Side effects: 
             Sets the customer_choice_type, customer_choice_make, duration, and 
             extra attributes. 
 
         """
-        self.customer_choice_type = input("Please choose from the following car "
-                                     + "type options: Sedan, SUV, Van, Truck \n")
+        self.customer_choice_type = input("Please choose from the following car"
+                                    +" type options: Sedan, SUV, Van, Truck \n")
         
-        self.customer_choice_make = input("Please enter the make of the car you "
-                                         + "want \n")
+        self.customer_choice_make = input("Please enter the make of the car you"
+                                        +" want \n")
         self.duration = int(input("Please enter how many days you will rent " 
                             + "the car for. \n"))
         
