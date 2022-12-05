@@ -216,20 +216,20 @@ class RentalOrder:
         return self.final + other.final
         
     def receipt(self, store = "Team Blue's Rental"):
-        """Creates receipt of the entire customer order by calling the attributes
-        and printing an f-string.
+        """Creates receipt of the entire customer order by calling the 
+        attributes and printing an f-string.
         
         Args:
-            store (str): name of the rental store,default value is "Ally Rental"
+            store(str): name of the rental store,default value is "Ally Rental"
             
         Side effects:
-            prints the details of the customer's order in an f-string 
+            prints the details of the customer's order as an f-string. 
         """
         self.total_cost()
         print (f"Receipt: \n {self.customer.name} rented a"
                f" {self.customer_choice_make}" 
                f" {self.customer_choice_type}. Your car is being rented for"
-               f" {self.final} not including any add-on fees. Thank you for renting"
+               f" {self.final} not including add-on fees. Thank you for renting"
                f" from {store}.")
         
 def main(filepath, name, phone_number): 
@@ -246,6 +246,9 @@ def main(filepath, name, phone_number):
                         separated by commas. Each line of the file will 
                         contain information about a different make and type of 
                         car.
+    Side effects: 
+        prints an f-string greeting the customer, beginning the process of the 
+        order to recieve their inputs. 
         
     """ 
     client = Customer(name, phone_number)
