@@ -154,6 +154,10 @@ class RentalOrder:
             sorted() method returns a sorted list of cars based on the prices 
             for the customers to see 
         """ 
+        print("List of makes from least expensive to most expensive")
+        pricing = sorted(self.cars, key = lambda c: self.cars[c][2])
+        print(pricing)
+        
     def additional_fees(self):
         """Adds on the additional fees to the price depending on what is
         available to the customer and what option they chose based on their
@@ -227,6 +231,12 @@ def parse_args(arglist):
         arglist(list of str): arguments from the command line,
     Returns:
         namespace: the parsed arguments, as a namespace."""
+    parser = ArgumentParser()
+    parser.add_argument("filepath", help= "file with information about cars")
+    parser.add_argument("name", help = "customer's name")
+    parser.add_argument("phone_number", help = "the customer's phone number")
+    
+    return parser.parse_args(arglist)
 
 if __name__ == "__main__":
     """Not defined as a method or function, but allows the program to run as a
