@@ -78,11 +78,12 @@ class RentalCar:
     def __init__(self, filepath, customer): 
         """ This class initalizes the customer (which is an instance of the
         Customer class) and cars (which is a dictionary about the car information)
-        as attribute. It also reads in the file and uses sequence unpacking to 
-        create the variables or the different information about the car (such as
-        the number in stock, the type of car, and the price) and it prints each 
-        line of code in the file including the make of the car, the number in 
-        stock, the type of car and the price of the car. 
+        as attribute. It also reads in the file in which the values are separated
+        by commmas and uses sequence unpacking to create the variables or the 
+        different information about the car (such as the number in stock, 
+        the type of car, and the price) and it prints each line of code in the 
+        file including the make of the car, the number in stock, the type of car 
+        and the price of the car. 
         
         
         Args: 
@@ -147,6 +148,9 @@ class RentalCar:
         
         Args:
             store (str): name of the rental store,default value is "Ally Rental"
+            
+        Side effects:
+            prints the details of the customer's order in an f-string 
         """
         
 def main(filepath): 
