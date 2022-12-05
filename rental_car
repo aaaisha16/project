@@ -153,13 +153,13 @@ class RentalOrder:
                       "insurance, roadside assistance, both, or None. \n")
                 
     def stock(self):
-        """ Returns a new set of the updated stock after subtracting the 
-        customer's order (which we will use a set function on) from the current 
-        stock.
+        """ Using a set of makes in stock, it checks to see if the user's 
+        choice of make is available.
             
-        Returns:
-            it returns the new set of the new available stock in an f-string
-            
+        Side effects:
+            Prints if user's input of the make is available.
+        Raises:
+            ValueError: if the requested make is unavailable
         """
         make_available = {"Toyota","Honda","Ford","Chevrolet","Nissan", "Jeep"}
         user_choice = set()
@@ -170,11 +170,13 @@ class RentalOrder:
             raise ValueError ("Your requested make is not in stock. Try again.")
         
     def price_of_cars(self):
-        """Sorts the cars using a lambda function based on the prices.
+        """Sorts the cars using a lambda function based on the prices from least
+        to greatest.
         
         Side effect: 
-            sorted() method returns a sorted list of cars based on the prices 
+            - sorted() method displays a sorted list of cars based on the prices 
             for the customers to see 
+            - prints sorted list
         """ 
         print("List of makes from least expensive to most expensive")
         pricing = sorted(self.cars, key = lambda c: self.cars[c][2])
