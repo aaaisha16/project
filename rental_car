@@ -30,7 +30,12 @@ class Customer:
             -sets name and phone number attribute and changes the self attribute
             -prints to standard output 
 	    """
-     
+        self.name = name
+        self.id = random.randint(1,50) 
+        expr = r"\d{3}\D?\d{3}\D?\d{4}" 
+        self.phone_number = phone_number if re.search(expr, phone_number) \
+            else print("Not a valid phone number format (###-###-####)")
+            
     def age(self, required = 21): 
         """Determines if a user is the required age to rent a vehicle. Only 
         users 21 and older will be allowed to otherwise a prompt will display
@@ -142,6 +147,21 @@ class RentalCar:
         Returns:
             f-str: tells the user what the price is of the add on they used. 
         """
+    def additional_fees(self):
+        """Adds on the additional fees to the price depending on what is
+        available to the customer and what option they chose based on their
+        input.
+            
+        Returns:
+            f-str: tells the user what the price is of the add on they used. 
+        """
+        fees = {"insurance": 30,"roadside assistance":20, "both": 50, "None":0}
+        for add_on in fees:
+            if add_on == self.extra: 
+                print (f"Your {add_on} add on price is: {fees[add_on]} dollars")
+        
+        if self.extra not in fees:
+            print ("Your choice of add-on is not available.")
         
     def __mul__(self):
         """Calculates total price by multipying the price per day (which can 
