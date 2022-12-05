@@ -235,7 +235,8 @@ class RentalOrder:
         attributes and printing an f-string.
         
         Args:
-            store(str): name of the rental store,default value is "Ally Rental"
+            store(str): name of the rental store,default value is "Team Blue's 
+            Rental"
             
         Side effects:
             prints the details of the customer's order as an f-string. 
