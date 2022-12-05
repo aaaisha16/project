@@ -58,28 +58,31 @@ class Customer:
             raise ValueError("Must be at least 21 to rent a car")
       
 class RentalOrder: 
-    """RentalOrder class organizes all of the information from the Customer class,
-    by taking in an instance of the customer class as a customer of the rental 
-    car. Then uses the customer's order information that they inputted to 
-    calculate price totals and generate a final receipt that will print out for
-    the customer. 
+    """RentalOrder class organizes all of the information from the Customer 
+    class, by taking in an instance of the customer class as a customer of the
+    rental car. The inventory is printed out to display the rental car 
+    information. Customer inputs information about their rental car order and 
+    price totals and a final receipt will be generated and printed for the 
+    customer. 
     
     Attributes: 
-        customer(instance of the Customer class): instance of the Customer class
+        customer(instance of the Customer class): instance of the Customer class.
         cars(dictionary): dictionary that will have the make (str) of the car
                           as the key, and the value will be equal to a list of 
                           information about the car such as number in stock(int), 
                           the car type (str)(sedan, etc), and the price (float) 
                           in that order. This will be used to access information 
                           about the cars in other methods.
-        final (float): the total calculated renting price for the customer 
-        customer_choice_type (str): the type of car that the customer wants
-                                    to rent
-        customer_choice_make (str): the make of car that the customer wants
-                                    to rent
-        duration (int): the number of days the customer wants to rent 
-        extra (str): the add-ons the customer may want to include, such as 
-                    insurance or roadside assistance  
+        customerID(int): the customer's ID that links them to their rental car
+        order. 
+        final(float): the total calculated renting price for the customer.
+        customer_choice_type(str): the type of car that the customer wants
+                                   to rent. (ex: sedan)
+        customer_choice_make(str): the make of car that the customer wants
+                                   to rent. (ex: Honda)
+        duration(int): the number of days the customer wants to rent. 
+        extra(str): the add-ons the customer may want to include, such as 
+                    insurance, roadside assistance, both, or none. 
         
     """
     
