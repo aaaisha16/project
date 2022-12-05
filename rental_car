@@ -1,4 +1,7 @@
 from argparse import ArgumentParser
+import random 
+import sys 
+import re
 
 class Customer: 
     """Acts as an instance of a customer. It takes the customer's information
@@ -252,5 +255,5 @@ if __name__ == "__main__":
     """Not defined as a method or function, but allows the program to run as a
     script."""
     args = parse_args(sys.argv[1:])
-    main = main(args.filepath) 
+    main = main(args.filepath, args.name, args.phone_number) 
     
