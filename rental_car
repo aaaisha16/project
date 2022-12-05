@@ -147,14 +147,6 @@ class RentalCar:
         Returns:
             f-str: tells the user what the price is of the add on they used. 
         """
-    def additional_fees(self):
-        """Adds on the additional fees to the price depending on what is
-        available to the customer and what option they chose based on their
-        input.
-            
-        Returns:
-            f-str: tells the user what the price is of the add on they used. 
-        """
         fees = {"insurance": 30,"roadside assistance":20, "both": 50, "None":0}
         for add_on in fees:
             if add_on == self.extra: 
