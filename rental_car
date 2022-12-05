@@ -163,14 +163,17 @@ def main(filepath):
                         contains information about the cars such as 
                         number in stock (int), make (str), car type(str), 
                         and price (float) (in that order) which will be
-                        split through sequence unpacking.
-                        Each line of the file will contain information about a 
-                        different make and type of car.
+                        split through sequence unpacking. The values are 
+                        separated by commas. Each line of the file will 
+                        contain information about a different make and type of 
+                        car.
         
     """ 
 
 def parse_args(arglist):
-    """Parses command-line arguments. 
+    """Parses command-line arguments. The command line arguments it is expecting
+    is a filepath, the name of the customer, and the phone number of the 
+    customer"
     
     Args:
         arglist(list of str): arguments from the command line,
