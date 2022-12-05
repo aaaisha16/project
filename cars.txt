@@ -1,6 +1,6 @@
-35, Toyota, sedan, 45 
-28, Honda, SUV, 75
-20, Ford, Truck, 90
-15, Chevrolet, Truck, 85
-25, Nissan, Van, 80
-10, Jeep, SUV, 100
+35,Toyota,Sedan,45
+28,Honda,SUV,75
+20,Ford,Truck,90
+15,Chevrolet,Truck,85
+25,Nissan,Van,80
+10,Jeep,SUV,100
