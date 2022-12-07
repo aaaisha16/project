@@ -144,10 +144,16 @@ class RentalOrder:
         self.customer_choice_type = input("Please choose from the following car"
                                     +" type options: Sedan, SUV, Van, Truck \n")
         
+        print ("===========================================================")
+        
         self.customer_choice_make = input("Please enter the make of the car you"
                                         +" want \n")
+        print ("===========================================================")
+        
         self.duration = int(input("Please enter how many days you will rent " 
                             + "the car for. \n"))
+        
+        print ("===========================================================")
         
         self.extra = input("To include add-ons, please enter: " +
                       "Insurance, Roadside Assistance, Both, or None. \n")
@@ -268,11 +274,16 @@ def main(filepath, name, phone_number):
     client = Customer(name, phone_number)
     client.age()
     print(f"Hello {client.name}! Please begin your rental order!")
+    print ("===========================================================")
     rental = RentalOrder(filepath, client)
     rental.price_of_cars() 
+    print ("===========================================================")
     rental.order()
+    print ("===========================================================")
     rental.stock() 
+    print ("===========================================================")
     rental.additional_fees() 
+    print ("===========================================================")
     rental.receipt() 
 
 def parse_args(arglist):
