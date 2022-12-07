@@ -283,7 +283,7 @@ def main(filepath, name, phone_number):
     print ("===========================================================")
     rental = RentalOrder(filepath, client)
     rental.price_of_cars() 
-    print ("===========================================================")
+    c
     rental.order()
     print ("===========================================================")
     rental.stock() 
@@ -292,6 +292,24 @@ def main(filepath, name, phone_number):
     print ("===========================================================")
     rental.receipt()    
     print ("===========================================================")
+    
+    answer = input("Would you like to place another order? Enter Yes or No: ")
+    if answer == "Yes":
+        rental2 = RentalOrder(filepath, client)
+        rental2.price_of_cars() 
+        print ("===========================================================")
+        rental2.order()
+        print ("===========================================================")
+        rental2.stock() 
+        print ("===========================================================")
+        rental2.additional_fees() 
+        print ("===========================================================")
+        rental2.receipt() 
+        print ("===========================================================")
+        print (f"Profits from both of {client.name}'s orders: " +
+               f"{rental.final + rental2.final} dollars.")
+    elif answer == "No":
+        print("Your order is complete.") 
     
 def parse_args(arglist):
     """Parses command-line arguments. The command line arguments it is expecting
