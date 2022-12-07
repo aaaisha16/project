@@ -51,11 +51,17 @@ class Customer:
             ValueError: if the value of age is lower than the required age of 
                         21 to rent a car  
 	    """
-        age = int(input("What is your age? \n"))
+        age = int(input("====================================================="
+                        + "======\n"
+                        + "What is your age? \n"))
         if age >= required:
-            print ("You are old enough to rent a car, please continue.")   
+            print("===========================================================")
+            print("You are old enough to rent a car, please continue.")   
+            print("===========================================================")
         else:
+            print("===========================================================")
             raise ValueError("Must be at least 21 to rent a car")
+
       
 class RentalOrder: 
     """RentalOrder class organizes all of the information from the Customer 
@@ -284,8 +290,9 @@ def main(filepath, name, phone_number):
     print ("===========================================================")
     rental.additional_fees() 
     print ("===========================================================")
-    rental.receipt() 
-
+    rental.receipt()    
+    print ("===========================================================")
+    
 def parse_args(arglist):
     """Parses command-line arguments. The command line arguments it is expecting
     is a filepath, the name of the customer, and the phone number of the 
