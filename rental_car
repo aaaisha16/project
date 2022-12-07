@@ -233,8 +233,8 @@ class RentalOrder:
         self.final = cost * self.duration
         
     def __add__(self,other):
-        """ Add up the different totals between two instances of the RentalOrder
-        class final cost to determine profits.
+        """ Add up the different totals between two  orders from one customer 
+        to determine thier final cost.
         
         Args:
             other (instance of RentalOrder): another instance of the RentalOrder
