@@ -28,6 +28,7 @@ class Customer:
             -sets name,phone number, and id attribute and changes the self object
             -prints to standard output 
 	    """
+        #includes regular expressions and conditional expressions 
         self.name = name
         self.id = random.randint(1,50) 
         expr = r"\d{3}\D?\d{3}\D?\d{4}" 
@@ -51,6 +52,8 @@ class Customer:
             ValueError: if the value of age is lower than the required age of 
                         21 to rent a car  
 	    """
+        # optional parameters
+        
         age = int(input("====================================================="
                         + "======\n"
                         + "What is your age? \n"))
@@ -122,7 +125,7 @@ class RentalOrder:
             -sets customer, cars, and customer id attribute 
             
         """
-                                               
+        # with open statement and sequence unpacking                                     
         self.customer = customer 
         self.customerId = customer.id
         self.cars = {} 
@@ -130,7 +133,7 @@ class RentalOrder:
             for line in f:
                 number_in_stock, make, car_type, price = line.split(",") 
                 self.cars[make] = [number_in_stock, car_type, float(price)]
-                # eg: {toyota: [4, sedan, 5.00]}
+                # e.g.: {toyota: [4, sedan, 5.00]}
                 print (f"  Stock: {number_in_stock}"
                        f"  Make: {make}"
                        f"  Type: {car_type}"
@@ -165,6 +168,7 @@ class RentalOrder:
                       "Insurance, Roadside Assistance, Both, or None. \n")
                 
     def stock(self):
+   
         """ Using a set of makes in stock, it checks to see if the user's 
         choice of make is available.
             
@@ -173,6 +177,7 @@ class RentalOrder:
         Raises:
             ValueError: if the requested make is unavailable
         """
+        #set operations
         make_available = {"Toyota","Honda","Ford","Chevrolet","Nissan", "Jeep"}
         user_choice = set()
         user_choice.add(self.customer_choice_make)
@@ -190,6 +195,7 @@ class RentalOrder:
             for the customers to see 
             - prints sorted list
         """ 
+        # sorting with a key function 
         print("List of makes from least expensive to most expensive")
         pricing = sorted(self.cars, key = lambda c: self.cars[c][2])
         print(pricing)
@@ -204,6 +210,7 @@ class RentalOrder:
             otherwise prints that the add on is not available 
             
         """
+        # f-strings
         fees = {"Insurance": 30,"Roadside Assistance":20, "Both": 50, "None":0}
         for add_on in fees:
             if add_on == self.extra: 
@@ -238,6 +245,7 @@ class RentalOrder:
             RentalOrder class
             
         """
+        #magic method
         return self.final + other.final
         
     def receipt(self, store = "Team Blue's Rental"):
@@ -251,6 +259,7 @@ class RentalOrder:
         Side effects:
             prints the details of the customer's order as an f-string. 
         """
+        #f-string
         self.total_cost()
         print (f"Receipt: \n {self.customer.name} rented a"
                f" {self.customer_choice_make}" 
@@ -277,6 +286,7 @@ def main(filepath, name, phone_number):
         order to recieve their inputs. 
         
     """ 
+    #f-string
     client = Customer(name, phone_number)
     client.age()
     print(f"Hello {client.name}! Please begin your rental order!")
@@ -320,6 +330,7 @@ def parse_args(arglist):
         arglist(list of str): arguments from the command line,
     Returns:
         namespace: the parsed arguments, as a namespace."""
+    #ArgumentParser class
     parser = ArgumentParser()
     parser.add_argument("filepath", help= "file with information about cars")
     parser.add_argument("name", help = "customer's name")
