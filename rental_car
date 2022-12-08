@@ -293,7 +293,7 @@ def main(filepath, name, phone_number):
     print ("===========================================================")
     rental = RentalOrder(filepath, client)
     rental.price_of_cars() 
-    c
+    print ("===========================================================")
     rental.order()
     print ("===========================================================")
     rental.stock() 
@@ -317,7 +317,7 @@ def main(filepath, name, phone_number):
         rental2.receipt() 
         print ("===========================================================")
         print (f"Profits from both of {client.name}'s orders: " +
-               f"{rental.final + rental2.final} dollars.")
+               f"{rental + rental2} dollars.")
     elif answer == "No":
         print("Your order is complete.") 
     
